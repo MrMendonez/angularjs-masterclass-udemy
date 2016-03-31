@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript Module</title>
+</head>
+<body>
+
+
+  <script type="text/javascript">
+    var account = function() {
+      var balance = 0;
+
+      var deposit = function (money) {
+        balance += money;
+        console.log("balance after deposit: ", balance);
+        sendMsg();
+      }
+
+      var withdraw = function(money) {
+        balance -= money;
+        console.log("balance after withdrawel: ", balance);
+        sendMsg();
+      }
+
+      var sendMsg = function() {
+        console.log("Sending message!")
+      }
+
+      return {
+        deposit: deposit,
+        withdraw: withdraw
+      }
+
+    }
+
+    var a1 = account();
+    a1.deposit(1000);
+    a1.withdraw(250);
+
+    a1.sendMsg(350);
+  </script>
+</body>
+</html>
