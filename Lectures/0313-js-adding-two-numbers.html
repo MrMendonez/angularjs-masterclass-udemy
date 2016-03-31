@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Traditional JavaScript Development</title>
+</head>
+<body>
+  <h1>Addition of two numbers</h1>
+  First Number: <input type="text" id="firstNumInput" /><br />
+  Second Number: <input type="text" id="secondNumInput" /><br />
+
+  <button id="caclulateBtn" onclick="calculate()">Calculate!</button><br />
+
+  Result: <p id="result"></p>
+
+  <script type="text/javascript">
+    function calculate() {
+      var num1 = parseInt(document.getElementbyId("firstNumInput").value);
+      var num2 = parseInt(document.getElementbyId("secondNumInput").value);
+
+      var result = num1 + num2;
+
+      document.getElementbyId("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
