@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Angular Module</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      var name = "myApp",
+          requires = [];
+      var myApp = angular.module(name, requires);
+    }());
+
+    console.log(angular.module("myApp"));
+  </script>
+</head>
+<body>
+
+</body>
+</html>
