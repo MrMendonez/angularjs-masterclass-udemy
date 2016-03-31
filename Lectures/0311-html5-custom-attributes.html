@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Custom Attributes</title>
+</head>
+<body>
+  <div data-highlight="true">I am a div</div>
+  <div data-highlight="false">I am a div</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+  <script type="text/javascript">
+    $("div[data-highlight='true']")
+      .css("background", "blue");
+  </script>
+</body>
+</html>
