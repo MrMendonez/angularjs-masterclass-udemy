@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title></title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript">
+
+    (function() {
+      var name = "myApp",
+          requires = [],
+          myApp = null;
+
+      myApp = angular.module(name, requires);
+
+      myApp.controller("AppCtrl", function() {
+        this.calculate = function(firstNum, secondNum) {
+          this.result = parseInt(firstNum) + parseInt(secondNum);
+
+        }
+      });
+    }());
+
+  </script>
+</head>
+<body ng-controller="AppCtrl as app">
+  <h1>Addition of two numbers</h1>
+  First Number: <input type="text" id="firstNumInput" ng-model="app.firstNum"/><br />
+  Second Number: <input type="text" id="secondNumInput" ng-model="app.secondNum"/><br />
+
+  <button id="caclulateBtn" ng-click="app.calculate(app.firstNum, app.secondNum)">Calculate!</button><br />
+
+  Result: <p id="result" ng-bind="app.result"></p>
+</body>
+</html>
