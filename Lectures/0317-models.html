@@ -12,12 +12,17 @@
 
     myApp = angular.module(name, requires);
 
-    myApp.controller("AppCtrl", function() {
-      this.employee = {
+    myApp.controller("AppCtrl", function($scope) {
+      $scope.employee = {
         firstName: "Darryl",
         lastName: "Mendonez",
         occupation: "Teacher"
       };
+
+      $scope.showMsg = function() {
+        console.log("This is a message");
+      }
+
     });
 
   }());
@@ -26,7 +31,8 @@
 
   </script>
 </head>
-<body ng-controller="AppCtrl as app">
-  <p>{{ app.employee.firstName + " " + app.employee.lastName + " - " + app.employee.occupation }}</p>
+<body ng-controller="AppCtrl">
+  <p>{{ employee.firstName + " " + employee.lastName + " - " + employee.occupation }}</p>
+  <button ng-click="showMsg()">Click Me</button>
 </body>
 </html>
