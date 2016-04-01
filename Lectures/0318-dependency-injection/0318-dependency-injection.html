@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DI - Real World</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript">
+    
+    var SecurityPerson = function() {
+      this.takecare = function() {
+        console.log("taking care!")
+      }
+    }
+    var apartment = function(person) {
+      var person = new SecurityPerson();
+      person.takecare();
+    }
+    apartment();
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

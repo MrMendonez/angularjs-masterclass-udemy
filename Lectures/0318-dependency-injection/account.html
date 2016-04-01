@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DI - Banking</title>
+  <script type="text/javascript">
+    
+    var Messaging = function() {
+      this.send = function() {
+        console.log("sending message!");
+      }
+    }
+
+    var account = function() {
+      var msg = new Messaging();
+
+      var balance = 0;
+
+      var deposit = function(money) {
+        balance += money;
+        console.log(balance);
+
+        msg.send();
+      }
+    }
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>
