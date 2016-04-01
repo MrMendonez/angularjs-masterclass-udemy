@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Angular Models</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript">
+    
+  (function() {
+    var name = "myApp",
+        requires = [],
+        myApp = null;
+
+    myApp = angular.module(name, requires);
+
+    myApp.controller("AppCtrl", function() {
+      this.employee = {
+        firstName: "Darryl",
+        lastName: "Mendonez",
+        occupation: "Teacher"
+      };
+    });
+
+  }());
+
+
+
+  </script>
+</head>
+<body ng-controller="AppCtrl as app">
+  <p>{{ app.employee.firstName + " " + app.employee.lastName + " - " + app.employee.occupation }}</p>
+</body>
+</html>
