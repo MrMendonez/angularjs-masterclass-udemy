@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Data Binding</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="AppCtrl as app">
+  <h1>Addition of two numbers</h1>
+
+  First Number: <input type="text" id="firstNumInput" ng-model="app.firstNum" /><br />
+  Second Number: <input type="text" id="secondNumInput" ng-model="app.secondNum" /><br />
+  Option: <button ng-click="app.setOperation('+')">+</button>
+  <button ng-click="app.setOperation('-')">-</button><br />
+
+  <button id="calculateBtn" ng-click="app.calculate(app.firstNum, app.secondNum)">=</button><br />
+
+  Result: <span id="result" ng-bind="app.result"></span>
+
+</body>
+</html>
