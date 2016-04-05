@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Data Binding</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript">
+    
+    (function() {
+      var name = "myApp",
+          requires = [],
+          myApp = null;
+
+      myApp = angular.module(name, requires);
+
+      myApp.controller("AppCtrl", function($scope) {
+        $scope.contacts = [
+          { firstname: "John", lastname: "Smith", favorite: true },
+          { firstname: "Jimmy", lastname: "Jacob", favorite: false },
+          { firstname: "Charles", lastname: "Bailey", favorite: false },
+          { firstname: "Jacob", lastname: "Bateman", favorite: true },
+          { firstname: "Andrew", lastname: "Baxter", favorite: false }
+        ];
+
+        $scope.addContact = function() {
+          $scope.contacts.push({ firstname: "Julia", lastname: "Roberts" });
+        }
+
+      });
+    }());
+
+  </script>
+</head>
+<body ng-controller="AppCtrl">
+  <div>{{ contacts[0].firstname + " " + contacts[0].lastname + " - " + contacts[0].favorite }}</div><br />
+  <div>
+    First Name: <input id="firstName" type="text" ng-model="contacts[0].firstname" />
+    Last Name: <input id="lastName" type="text" ng-model="contacts[0].lastname" />
+  </div>
+</body>
+</html>
