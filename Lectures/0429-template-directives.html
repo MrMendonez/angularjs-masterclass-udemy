@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="myApp" class="ng-scope">
+<head>
+  <title>AngularJS Data Binding</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript">
+    
+    (function() {
+      var name = "myApp",
+          requires = [],
+          myApp = null;
+
+      myApp = angular.module(name, requires);
+
+      myApp.controller("AppCtrl", function($scope) {
+        $scope.contacts = [
+          { firstname: "John", lastname: "Smith", favorite: true },
+          { firstname: "Jimmy", lastname: "Jacob", favorite: false },
+          { firstname: "Charles", lastname: "Bailey", favorite: false },
+          { firstname: "Jacob", lastname: "Bateman", favorite: true },
+          { firstname: "Andrew", lastname: "Baxter", favorite: false }
+        ];
+
+        $scope.addContact = function() {
+          $scope.contacts.push({ firstname: "Julia", lastname: "Roberts" });
+        }
+
+      });
+    }());
+
+  </script>
+  <style type="text/css">
+    .odd {
+      background-color: tan;
+    }
+    .even {
+      background-color: gray;
+    }
+  </style>
+</head>
+<body ng-controller="AppCtrl" class="ng-scope">
+  <ul>
+    <li ng-repeat="(key, value) in contacts[0]">{{ key }} - {{ value }}</li>   
+  </ul>
+  <ul>
+    <li ng-repeat="prop in contacts[0]">{{ prop }}</li>   
+  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Favorite</th>
+        <th>First</th>
+        <th>Last</th>
+        <th>Middle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="contact in contacts" ng-class="$odd ? 'odd' : 'even'">
+        <td>{{ $index + 1 }}</td>
+        <td>{{ contact.firstname }}</td>
+        <td>{{ contact.lastname }}</td>
+        <td>{{ contact.favorite }}</td>
+        <td>{{ $first }}</td>
+        <td>{{ $last }}</td>
+        <td>{{ $middle }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <tdata>
+      <tr ng-repeat-start="contact in contacts">
+        <td>Contact ID: {{ $index + 1 }}</td>
+      </tr>
+      <tr>
+        <td>Name: {{ contact.firstname }} {{ contact.lastname }}</td>
+      </tr>
+      <tr ng-repeat-end>
+        <td>Favorite Contact?: {{ contact.favorite }}</td>
+      </tr>
+    </tdata>
+  </table>
+</body>
+</html>
