@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>AngularJS Data Binding</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script type="text/javascript">
+    
+    (function() {
+      var name = "myApp",
+          requires = [],
+          myApp = null;
+
+      myApp = angular.module(name, requires);
+
+      myApp.controller("AppCtrl", function($scope) {
+        $scope.contacts = [
+          { firstname: "John", lastname: "Smith", favorite: true },
+          { firstname: "Jimmy", lastname: "Jacob", favorite: false },
+          { firstname: "Charles", lastname: "Bailey", favorite: false },
+          { firstname: "Jacob", lastname: "Bateman", favorite: true },
+          { firstname: "Andrew", lastname: "Baxter", favorite: false }
+        ];
+
+        $scope.url = "contact-table.html";
+
+        $scope.viewFile = function() {
+          if($scope.viewState) {
+            return 'contact-list.html';
+          }
+          else {
+            return 'contact-table.html';
+          }
+        }
+
+      });
+    }());
+
+  </script>
+  <style type="text/css">
+    .odd {
+      background-color: tan;
+    }
+    .even {
+      background-color: gray;
+    }
+  </style>
+</head>
+<body ng-controller="AppCtrl">
+  <input type='checkbox' ng-model='viewState' /> Toggle List View
+  <div ng-include="viewFile()"></div>
+</body>
+</html>
