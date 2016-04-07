@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Template Directive</title>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script>
+    (function() {
+      var name = "myApp",
+          requires = [],
+          myApp = null;
+
+      myApp = angular.module(name, requires);
+
+      myApp.controller("AppCtrl", function($scope) {
+        $scope.data = {};
+      });
+    }());
+  </script>
+</head>
+<body ng-controller="AppCtrl">
+  <div ng-repeat="channel in ['None', 'Star TV', 'Star World']">
+    <input type="radio" name="leisure" value="{{ channel }}" ng-model="data.whichChannel" ng-checked="$first" /> {{ channel }}
+  </div>
+
+  <div ng-switch on="data.whichChannel">
+    <div ng-switch-when="Star TV">
+      You are watching Star TV
+    </div>
+    <div ng-switch-when="Star World">
+      You are watching Star World
+    </div>
+    <div ng-switch-default>
+      You are watching nothing
+    </div>
+  </div>
+</body>
+</html>
